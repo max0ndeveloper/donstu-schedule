@@ -1,0 +1,53 @@
+
+  .schedule-item {
+    margin-top: 2em;
+    .schedule-item__date {
+      text-align: center;
+    }
+
+    .schedule-item__container{
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(4, 1fr);
+      grid-row-gap: 0px;
+    }
+
+    .schedule-item__list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: 1fr;
+      grid-column-gap: 0px;
+      grid-row-gap: 0px;
+      margin: 2em auto 0;
+      -webkit-box-shadow: 0px 25px 25px -24px rgba(0,0,0,0.46);
+      -moz-box-shadow: 0px 25px 25px -24px rgba(0,0,0,0.46);
+      box-shadow: 0px 25px 25px -24px rgba(0,0,0,0.46);
+      border-radius: 5px;
+
+    }
+    .schedule-item__list-time{
+      text-align: center;
+    }
+    .schedule-item__list-text {
+      max-width: 280px;
+      text-align: center;
+    }
+    .schedule-item__list-audience {
+      text-align: center;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .schedule-item {
+      margin-top: 1em;
+      .schedule-item__list {
+        margin: 1em auto 0;
+      }
+      .schedule-item__list-text span {
+        font-size: 0.9rem;
+      }
+      .schedule-item__list-text p {
+        font-size: 0.7rem;
+      }
+    }
+  }
