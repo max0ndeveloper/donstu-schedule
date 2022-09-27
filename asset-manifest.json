@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/donstu-schedule/static/css/main.d1cc77b2.css",
+    "main.js": "/donstu-schedule/static/js/main.d4cc0007.js",
+    "static/js/787.97bf60bd.chunk.js": "/donstu-schedule/static/js/787.97bf60bd.chunk.js",
+    "index.html": "/donstu-schedule/index.html",
+    "main.d1cc77b2.css.map": "/donstu-schedule/static/css/main.d1cc77b2.css.map",
+    "main.d4cc0007.js.map": "/donstu-schedule/static/js/main.d4cc0007.js.map",
+    "787.97bf60bd.chunk.js.map": "/donstu-schedule/static/js/787.97bf60bd.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d1cc77b2.css",
+    "static/js/main.d4cc0007.js"
+  ]
+}
