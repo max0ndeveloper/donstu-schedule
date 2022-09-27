@@ -38,16 +38,47 @@
   }
 
   @media (max-width: 768px) {
+
+  }
+
+
+  @media (max-width: 575px) {
     .schedule-item {
       margin-top: 1em;
+      .schedule-item__date {
+        font-size: 25px;
+      }
       .schedule-item__list {
         margin: 1em auto 0;
       }
+      .schedule-item__list-time {
+        font-size: 10px;
+      }
       .schedule-item__list-text span {
-        font-size: 0.9rem;
+        font-size: 0.7rem;
       }
       .schedule-item__list-text p {
-        font-size: 0.7rem;
+        font-size: 0.5rem;
+      }
+      .schedule-item__list-audience {
+        font-size: 10px;
       }
     }
   }
+
+  /* sm (>=576 и <=767) */
+  @media (min-width: 576px) and (max-width: 767px) { .schedule-item {
+    margin-top: 1em;
+    .schedule-item__date {
+      font-size: 25px;
+    }
+    .schedule-item__list {
+      margin: 1em auto 0;
+    }
+    .schedule-item__list-text span {
+      font-size: 0.9rem;
+    }
+    .schedule-item__list-text p {
+      font-size: 0.7rem;
+    }
+  } }
