@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+
 }
 
 body {
@@ -10,8 +11,6 @@ body {
     -moz-osx-font-smoothing: grayscale;
     background-color: #6179f5;
     background-image: linear-gradient(43deg, #6179f5 0%, #e66cdd 46%, #FFCC70 100%);
-
-
 }
 
 code {
