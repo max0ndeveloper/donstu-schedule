@@ -8,6 +8,7 @@ const ScheduleItem = ({date, selected}) => {
 
     const [formattedDate, setFormattedDate] = useState('')
 
+
     const formatDate = () => {
         const newDate = selected.toISOString().substring(0,10)
         const datePart = newDate.match(/\d+/g),
@@ -25,7 +26,9 @@ const ScheduleItem = ({date, selected}) => {
         <div className="schedule">
             {
                 Object.keys(date).map((key, index) => {
-                    if (key.substring(0, 10) === selected.toISOString().substring(0, 10)) {
+                    const scheduleDate = key.substring(0, 10)
+                    const selectedDate = selected.toISOString().substring(0, 10)
+                    if (scheduleDate === selectedDate) {
                         return (
                             <div key={index} className="schedule-item">
                                 <h1 className="schedule-item__date">{formattedDate}</h1>
