@@ -12,6 +12,7 @@
     }
 
     .schedule-item__list {
+      border: 1px solid rgba(0,0,0,0.07);
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       grid-template-rows: 1fr;
@@ -37,15 +38,11 @@
   }
 
 
-  @media (max-width: 574px) {
-
-  }
-
-  @media (max-width: 575px) {
+  @media (max-width: 389px) {
     .schedule-item {
       margin-top: 1em;
       .schedule-item__date {
-        font-size: 1.5rem;
+        font-size: 1.3rem ;
       }
       .schedule-item__container {
         grid-template-rows: repeat(auto-fit, 1fr);
@@ -53,17 +50,45 @@
       .schedule-item__list {
         margin: 1em auto 0;
       }
+      .schedule-item__list-text span {
+        font-size: .7rem;
+      }
+      .schedule-item__list-text p {
+        font-size: .5rem;
+      }
       .schedule-item__list-time {
         font-size: 10px;
       }
-      .schedule-item__list-text span {
-        font-size: 0.7rem;
-      }
-      .schedule-item__list-text p {
-        font-size: 0.5rem;
-      }
       .schedule-item__list-audience {
         font-size: 10px;
+      }
+    }
+  }
+
+
+  @media (min-width: 390px) and (max-width: 575px) {
+    .schedule-item {
+      margin-top: 1em;
+      .schedule-item__date {
+        font-size: 1.5rem;
+      }
+      .schedule-item__container {
+        grid-template-rows: repeat(4, .9fr);
+      }
+      .schedule-item__list {
+        margin: 1em auto 0;
+      }
+      .schedule-item__list-time {
+        font-size: 15px;
+      }
+      .schedule-item__list-text span {
+        font-size: .9rem;
+      }
+      .schedule-item__list-text p {
+        font-size: .7rem;
+      }
+      .schedule-item__list-audience {
+        font-size: 15px;
       }
     }
   }

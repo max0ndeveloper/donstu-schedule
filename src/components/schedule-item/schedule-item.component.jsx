@@ -47,7 +47,6 @@ const ScheduleItem = ({date, selected}) => {
                                                         {i.аудитория}
                                             </p>
                                         </ListItem>
-
                                     ))
                                     }
                                 </List>
