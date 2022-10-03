@@ -1,11 +1,10 @@
-
 import './App.css';
-import ScheduleList from "./components/schedule-list/schedule-list.component";
+import SchedulePage from "./components/schedule-page/schedule-page.component";
 
 function App() {
   return (
     <div className="App">
-      <ScheduleList/>
+      <SchedulePage/>
     </div>
   );
 }

@@ -1,70 +1,26 @@
-import {useEffect, useState} from "react";
-import useFetch from "../../hooks/useFetch.hook";
-
-import CircularProgress from '@mui/material/CircularProgress';
-import Box from '@mui/material/Box';
-
-import {DatePickerComponent} from "../date-picker/date-picker.component";
-import ScheduleItem from "../schedule-item/schedule-item.component";
-
-import './schedule-list.style.scss'
-
-const ScheduleList = () => {
-
-    const url = '/Rasp?idGroup=44191'
-
-    const [{isLoading, response, error}, doFetch] = useFetch(url);
-    useEffect(() => {
-        doFetch()
-    }, [doFetch])
-
-    const [date, setDate] = useState()
-    let todayDate = new Date()
-    const [selectedDate, setSelectedDate] = useState(todayDate.toISOString())
-    let selected = new Date(selectedDate)
-
-    function groupBy(key) {
-        return function group(array) {
-            return array.reduce((acc, obj) => {
-                const property = obj[key];
-                acc[property] = acc[property] || [];
-                acc[property].push(obj);
-                return acc;
-            }, {});
-        };
-    }
-
-    const groupByYear = groupBy("дата")
-
-    useEffect(() => {
-        if (response) {
-            setDate(groupByYear(response.data.rasp))
-        }
-    }, [response])
+import AccessTimeIcon from "@mui/icons-material/AccessTime";
+import {ListItem, ListItemText} from "@mui/material";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
 
 
-    const spinnerJSX = isLoading ?
-        <Box sx={{display: 'flex', justifyContent: 'center'}}>
-            <CircularProgress className="spinner"/>
-        </Box> : null
-
-    const contentJSX = date ?
-        <ScheduleItem
-            date={date}
-            selected={selected}
-        /> : spinnerJSX
-
-    const datePicker = date ?
-        <DatePickerComponent
-            selectedDate={selectedDate}
-            setSelectedDate={setSelectedDate}
-        /> : null
-
+const ScheduleList = ({i, index}) => {
     return (
-        <div className="container">
-            {datePicker}
-            {contentJSX}
-        </div>
+        <ListItem key={index} className="schedule-item__list">
+            <p className="schedule-item__list-time">
+                <AccessTimeIcon/> <br/>
+                {i.начало} - {i.конец}
+            </p>
+            <ListItemText
+                className="schedule-item__list-text"
+                primaryTypographyProps={{fontSize: '1.2rem'}}
+                primary={i.дисциплина}
+                secondary={i.преподаватель}
+            />
+            <p className="schedule-item__list-audience">
+                <LocationOnIcon/> <br/>
+                {i.аудитория}
+            </p>
+        </ListItem>
     )
 }
 
