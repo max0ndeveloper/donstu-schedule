@@ -1,63 +1,40 @@
-import {List, ListItem, ListItemText} from "@mui/material";
+import {List} from "@mui/material";
 import './schedule-item.style.scss'
-import LocationOnIcon from '@mui/icons-material/LocationOn';
-import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import {useEffect, useState} from "react";
+import ScheduleList from "../schedule-list/schedule-list.component";
 
 const ScheduleItem = ({date, selected}) => {
 
+
     const [formattedDate, setFormattedDate] = useState('')
+    const selectedDate = selected.toISOString().substring(0,10) + "T00:00:00"
+    const todaySchedule = date[selectedDate]
 
-
-    const formatDate = () => {
-        const newDate = selected.toISOString().substring(0,10)
-        const datePart = newDate.match(/\d+/g),
-            year = datePart[0],
-            month = datePart[1], day = datePart[2]
-
-        setFormattedDate(day+'.'+month+'.'+year)
-    }
+    const newDate = selected.toISOString().substring(0,10)
+    const datePart = newDate.match(/\d+/g),
+        year = datePart[0],
+        month = datePart[1], day = datePart[2]
 
     useEffect(() => {
-        formatDate()
+        setFormattedDate(day+'.'+month+'.'+year)
     }, [selected])
+
+    console.log(formattedDate)
+
+
+    const scheduleJSX = todaySchedule ?
+        <div className="schedule-item">
+            <h1 className="schedule-item__date">{formattedDate}</h1>
+            <List className="schedule-item__container">
+                {todaySchedule.map((i, index) => (
+                    <ScheduleList i={i} index={index} key={index}/>
+                ))}
+            </List>
+        </div> : <div className="schedule-item"><h1 className="schedule-item__not-exists">Пар нет.</h1></div>
 
     return (
         <div className="schedule">
-            {
-                Object.keys(date).map((key, index) => {
-                    const scheduleDate = key.substring(0, 10)
-                    const selectedDate = selected.toISOString().substring(0, 10)
-                    if (scheduleDate === selectedDate) {
-                        return (
-                            <div key={index} className="schedule-item">
-                                <h1 className="schedule-item__date">{formattedDate}</h1>
-                                <List className="schedule-item__container">
-                                    {date[key].map((i, index) => (
-                                        <ListItem key={index} className="schedule-item__list">
-                                            <p className="schedule-item__list-time">
-                                                        <AccessTimeIcon/> <br/>
-                                                        {i.начало} - {i.конец}
-                                            </p>
-                                            <ListItemText
-                                                    className="schedule-item__list-text"
-                                                    primaryTypographyProps={{fontSize: '1.2rem'}}
-                                                    primary={i.дисциплина}
-                                                    secondary={i.преподаватель}
-                                            />
-                                            <p className="schedule-item__list-audience">
-                                                        <LocationOnIcon/> <br/>
-                                                        {i.аудитория}
-                                            </p>
-                                        </ListItem>
-                                    ))
-                                    }
-                                </List>
-                            </div>
-                        )
-                    }
-                })
-            }
+            {scheduleJSX}
         </div>
     )
 }

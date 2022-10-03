@@ -1,4 +1,4 @@
-import {BASE_URL, Response_Code} from "../utils/constans";
+import {BASE_URL, Response_Code} from "../utils/constants";
 import {useCallback, useEffect, useState} from "react";
 
 const useFetch = (endpoint) => {
@@ -46,15 +46,6 @@ const useFetch = (endpoint) => {
                     setIsLoading(false)
                 }
             })
-
-        // let response = await fetch('https://api.wkeep.ru/v1/articles');
-        //
-        // if(response.ok) {
-        //   let data = await response.json();
-        //   console.log(data[0]);
-        // } else {
-        //   console.log(response.status)
-        // }
 
         return () => {
             skipGetResponseAfterDestroy = true;

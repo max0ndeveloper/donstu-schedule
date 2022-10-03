@@ -8,7 +8,7 @@ import './date-picker.style.scss'
 
 export const DatePickerComponent = ({selectedDate, setSelectedDate}) => {
     return (
-        <LocalizationProvider locale={ruLocale} dateAdapter={AdapterDateFns}>
+        <LocalizationProvider adapterLocale={ruLocale} dateAdapter={AdapterDateFns}>
             <Stack className="date-picker" spacing={1} sx={{width: '250px'}}>
                 <DatePicker
                     label="Выберите дату"
